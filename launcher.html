@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Custom Bunker Launcher</title>
+  <title>My Custom Bunker</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #fff;
+      background-color: #111;
+      color: white;
       font-family: monospace;
       padding: 2em;
     }
-    button, select {
-      padding: 0.5em;
+    h1 {
+      font-size: 1.5em;
+    }
+    select, button {
       margin-top: 1em;
+      padding: 0.5em 1em;
       font-size: 1em;
+      display: block;
     }
   </style>
 </head>
 <body>
   <h1>🚀 Launch Your Bunker</h1>
-  <p>Select a proxy provider:</p>
+  <label for="provider">Select a proxy provider:</label>
   <select id="provider">
     <option value="https://provider-nu.vercel.app/">*.vercel.app</option>
     <option value="https://twisty-ruddy-snickerdoodle.glitch.me">*.glitch.me</option>
-    <option value="https://your-
+    <option value="https://your-custom-provider.com">Your Custom Provider</option>
+  </select>
+
+  <button onclick="launchBunker()">Initialize Bunker</button>
+
+  <script>
+    function launchBunker() {
+      const provider = document.getElementById('provider').value;
+      const popup = window.open(provider, '_blank');
+      if (!popup) {
+        alert("⚠️ Please enable pop-ups for this site to launch the Bunker.");
+      }
+    }
+  </script>
+</body>
+</html>
